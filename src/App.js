@@ -1,25 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+
+import ProductFeatured from "./components/Products/ProductFeatured";
+import About from "./components/Products/About";
+import ProductDetails from "./components/Products/ProductDetails";
+import ProductFDetails from "./components/Products/ProductFDetails";
+
+import Product from "./components/Product";
+
+
+import Update from "./Update";
+import Destacados from "./Destacados";
+
+
+import Cart from "./components/Products/Cart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <Router>
+
+  <Nav />
+  <Route exact path="/">
+          <Hero />
+          <ProductFeatured />
+
+  </Route>
+
+  <Route exact path="/products">
+          <Product />  </Route>
+
+  <Route
+          path="/featured/:_id"
+          children={<ProductFDetails></ProductFDetails>}
+  ></Route>
+
+
+<Route path="/destacados" component={Destacados}  />
+
+
+<Route path="/update" component={Update}  />
+
+
+  <Route path="/about" component={About} />
+          
+  <Route
+          path="/products/:_id"
+          children={<ProductDetails></ProductDetails>}
+  ></Route>
+
+
+    <Route path="/cart">
+        <Cart />
+    </Route>
+
+   <Footer />
+
+
+</Router>
+
+
+
   );
 }
 
 export default App;
+

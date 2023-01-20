@@ -1,20 +1,16 @@
 import React from "react";
-//import Product from "./Product";
-import { ProductContext } from "../../context/products";
+import { PropertyContext } from "../../context/Properties";
 import Filters from "./Filters";
-import PageProducts from "./PageProducts";
+import PageProperties from "./PageProperties";
 
 import { Link } from 'react-router-dom'
-
-
+ 
 export default function ProductList() {
 
-  const { featured } = React.useContext(ProductContext);
+  const { featured } = React.useContext(PropertyContext);
 
   return (
     <>
-
-
      <section class="featured-properties-area section-padding-100-50">
         <div class="container">
             <div class="row">

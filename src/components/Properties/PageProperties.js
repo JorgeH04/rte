@@ -1,26 +1,25 @@
 import React from "react";
-import { ProductContext } from "../../context/products";
-import ProductList from "./ProductsList";
+import { PropertyContext } from "../../context/Properties";
+import PropertyList from "./PropertyList";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
-export default function PaginatedProducts() {
-  const { sorted, page, changePage } = React.useContext(ProductContext);
 
+export default function PaginatedProducts() {
+  const { sorted, page, changePage } = React.useContext(PropertyContext);
 
   if (sorted[page]) {
     return (
       <>
 
-
-	<section class="listings-content-wrapper section-padding-100">
-        <div class="container">
+	  <section class="listings-content-wrapper section-padding-100">
+      <div class="container">
         <div class="row">
-                <div class="col-12">
+            <div class="col-12">
                     
                 </div>
             </div>
 
            <div class="row">
-				 <ProductList products={sorted[page]}></ProductList>
+			    	 <PropertyList products={sorted[page]}></PropertyList>
            </div>
 
             <div class="row">
@@ -60,13 +59,6 @@ export default function PaginatedProducts() {
             </div>
         </div>
     </section>
-
-
-
-
-
-
-
 
 
 

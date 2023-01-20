@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// impt
 import PropTypes from "prop-types";
-//import img from "../../assets/mainBcg.jpeg";
-export default function Product({ imageuno, title, _id, price }) {
+export default function Propertycard({ imageuno, title, _id, price }) {
  
   return (
 
-    <>
-
+<>
   <div class="col-12 col-md-6 col-xl-4" key={_id}>
      <div class="single-featured-property mb-50">
         <div class="property-thumb">
@@ -53,9 +50,11 @@ export default function Product({ imageuno, title, _id, price }) {
    
   );
 }
-Product.propTypes = {
-  imageuno: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  id: PropTypes.number.isRequired
-};
+
+
+Propertycard.propTypes = {
+    imageuno: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired
+  };

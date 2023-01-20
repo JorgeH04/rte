@@ -4,21 +4,17 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import About from "./components/About";
 
-import ProductFeatured from "./components/Products/ProductFeatured";
-import About from "./components/Products/About";
-import ProductDetails from "./components/Products/ProductDetails";
-import ProductFDetails from "./components/Products/ProductFDetails";
+import PropertyFeatured from "./components/Properties/PropertyFeatured";
+import PropertyDetails from "./components/Properties/PropertyDetails";
+import PropertyFDetails from "./components/Properties/PropertyFDetails";
 
-import Product from "./components/Product";
-
-
-import Update from "./Update";
-import Destacados from "./Destacados";
+import Property from "./components/Property";
 
 
-import Cart from "./components/Products/Cart";
-
+ 
+ 
 function App() {
   return (
   <Router>
@@ -26,36 +22,27 @@ function App() {
   <Nav />
   <Route exact path="/">
           <Hero />
-          <ProductFeatured />
-
+          <PropertyFeatured />
   </Route>
 
-  <Route exact path="/products">
-          <Product />  </Route>
+  <Route exact path="/properties">
+        <Property />  
+  </Route>
 
   <Route
           path="/featured/:_id"
-          children={<ProductFDetails></ProductFDetails>}
+          children={<PropertyFDetails></PropertyFDetails>}
   ></Route>
 
-
-<Route path="/destacados" component={Destacados}  />
-
-
-<Route path="/update" component={Update}  />
-
-
+ 
   <Route path="/about" component={About} />
           
   <Route
           path="/products/:_id"
-          children={<ProductDetails></ProductDetails>}
+          children={<PropertyDetails></PropertyDetails>}
   ></Route>
 
-
-    <Route path="/cart">
-        <Cart />
-    </Route>
+ 
 
    <Footer />
 

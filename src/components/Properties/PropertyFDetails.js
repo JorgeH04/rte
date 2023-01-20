@@ -1,102 +1,24 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { ProductContext } from "../../context/products";
-import { CartContext } from "../../context/cart";
+import { PropertyContext } from "../../context/Properties";
 import { useHistory } from "react-router-dom";
 import Loading from "./Loading";
-
-import OwlCarousel from 'react-owl-carousel2';
-//import 'react-owl-carousel2/style.css';
-
 export default function ProductDetails() {
   const { _id } = useParams();
   const history = useHistory();
 
-  const { products } = React.useContext(ProductContext);
-  const { addToCart } = React.useContext(CartContext);
-  const product = products.find(item => item._id === _id);
-
-  const [details, setDetails] = React.useState([{title: "", price: "", amount: "", imageuno: "", imagedos: ""}]);
-  const [price, setPrice] = React.useState();
-  const [title, setTitle] = React.useState();
-  const [amount, setAmount] = React.useState();
-
-  
-  
-
-  React.useEffect(() => {
-    let prod = products.find(item => item._id === _id);
-    setDetails(prod) 
-  }, []);
- 
-
-  React.useEffect(() => {
-    let vim = products.find(item => item._id === _id);
-    let bb = vim.price
-    setPrice(bb) 
-  }, []);
-
-
-
-  const handleCheckdos = (e) => {
-
-    const checked = e.target.checked;
-
-    if (checked) {
-      let vv = products.find(item => item._id === _id);
-      let ca = vv.price
-      let car = vv.amountdos
-      let val = ca + car
-      console.log( ca + car)
-      setPrice(ca + car)
-    } else {
-      let vc = products.find(item => item._id === _id);
-      let cac = vc.price
-       setPrice(cac)
-    }
-  };
-
-
-  const handleCheck = (e) => {
-
-    const checked = e.target.checked;
-
-    if (checked) {
-      let vv = products.find(item => item._id === _id);
-      let ca = vv.price
-      let car = vv.amount
-      let val = ca + car
-      console.log( ca + car)
-      setPrice(ca + car)
-      // setDetails({
-      //   ...details,
-      //   [e.target.name]: e.target.value
-      // })   
-    } else {
-      let vc = products.find(item => item._id === _id);
-      let cac = vc.price
-       setPrice(cac)
-    }
-  };
-
-  const options = {
-    items: 1,
-    nav: true,
-    rewind: true,
-    autoplay: true
-};
- 
-
-
-
-  if (products.length === 0) {
+  const { featured } = React.useContext(PropertyContext);
+  const productF = featured.find(item => item._id === _id);
+  if (featured.length === 0) {
     return <Loading />;
   } else {
-   const {imageuno, imagedos, title, price, description} = product;
+    const { imageuno, imagedos, title, price, description } = productF;
 
-
+    
     return (
-       <>
+
+<>
+
 
 
     <section class="breadcumb-area bg-img"  style={{backgroundImage: `url("${"https://res.cloudinary.com/dd3uzxyfv/image/upload/v1672106872/hero1_wkue4r.jpg"}")`}}>
@@ -116,12 +38,10 @@ export default function ProductDetails() {
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <OwlCarousel class="single-listings-sliders owl-carousel" options={options} >
-                       <div><img src={imageuno} alt="The Last of us"/></div>
-                       <div><img src={imagedos} alt="GTA V"/></div>
-                     
-                     </OwlCarousel>
-                   
+                     <div class="single-listings-sliders owl-carousel">
+                         <img src={imageuno} alt=""/>
+                         <img src={imagedos} alt=""/>
+                    </div>
                 </div>
             </div>
 
@@ -166,7 +86,7 @@ export default function ProductDetails() {
                             <li><i class="fa fa-check" aria-hidden="true"></i> Beach Access</li>
                             <li><i class="fa fa-check" aria-hidden="true"></i> Rooftop Terrace</li>
                         </ul>
-                
+                       
                     </div>
                 </div>
              
@@ -174,10 +94,9 @@ export default function ProductDetails() {
             </div>
           
     </section>
- 
+</>
 
 
-       </>
 
     );
   }

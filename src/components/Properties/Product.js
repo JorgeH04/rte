@@ -1,10 +1,10 @@
 import React from "react";
 import ProductList from "./ProductList";
-import { ProductContext } from "../../context/products";
+import { PropertyContext } from "../../context/Properties";
 import Loading from "../Loading";
 
 export default function FeaturedProducts() {
-  const { loading, featured } = React.useContext(ProductContext);
+  const { loading, featured } = React.useContext(PropertyContext);
   if (loading) {
     return <Loading />;
   }

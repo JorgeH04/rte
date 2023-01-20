@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-//import {getPosts} from './service'
 import { getAll, paginate } from './data';
 
-export const ProductContext = React.createContext();
+export const PropertyContext = React.createContext();
 
 
-export default function ProductProvider({ children }) {
+export default function PropertyProvider({ children }) {
 
    const [loading, setLoading] = React.useState(false);   
    const [products, setProducts] = React.useState([]);
@@ -16,11 +15,18 @@ export default function ProductProvider({ children }) {
    const [filters, setFilters] = React.useState({
     search: "",
     name: "todos",
-    shipping: false,
+    amount: false,
     price: "todos",
-    color:"rooms"
+    color:"rooms",
+    filtro:"All",
+    talle:"todos",
+    colorstock:"bath",
+    minPrice: 0,
+    maxPrice: 0,
   });
-  const [price, setPrice] = React.useState();
+  const [price, setPrice] = React.useState(0);
+  const [maxPrice, setMaxPrice] = React.useState(0);
+  const [minPrice, setMinPrice] = React.useState(0);
 
  
 
@@ -40,14 +46,15 @@ export default function ProductProvider({ children }) {
       let response = await getAll(initialUrl);
       console.log(response);
       setSorted(paginate(products));
-      //
-      
-   //   console.log(response.data);
       setProducts(response.data);
+      console.log(response.data);
+        let maxPrice = Math.max(...response.data.map(item => item.price));
+       setPrice(maxPrice);
+       setMaxPrice(maxPrice)
+       //  console.log(maxPrice);
+      // console.log(maxPrice);
+      // console.log(maxPrice);
       setLoading(false);
-  
-    
-    
   }
   fetchData();
   
@@ -59,19 +66,11 @@ export default function ProductProvider({ children }) {
    React.useEffect(() => {
     setLoading(true);
     async function fetchData() {
-
       let responsedos = await getAll(initialUrlDos);
-      //console.log(responsedos);
-      //setSorted(paginate(products));
-      //console.log(res);
       setFeatured(responsedos.data);
       setLoading(false);
-  
-    
-    
   }
   fetchData();
-  
   }, []);
 
 
@@ -94,52 +93,34 @@ export default function ProductProvider({ children }) {
       filterValue = value;
     }
     setFilters({ ...filters, [filter]: filterValue });
-    console.log(filter);
+   // console.log(filter);
   };
-
-
-
-
-
-  const changePrice = (number) => {
-    setPrice(price + number);
-  };
-
-
-  const handleCheck = (e) => {
-    //  let vv = [...products].map(({title}) => title)
-    // console.log( vv)
-    const checked = e.target.checked;
-
-    if (checked) {
-      let vv = [...products].map(({title}) => title)
-      console.log( vv)
-    } else {
-      let vv = [...products].map(({price}) => price)
-      console.log( vv)
-    }
-  };
-
-
-
-
 
 
  
-
+ 
 
   React.useLayoutEffect(() => {
     let newProducts = [...products].sort((a, b) => a.price - b.price);
     
-    const { search, name, shipping, price, rooms, color } = filters;
+    const { search, name, shipping, price, rooms, color, amount, filtro, talle, colorstock } = filters;
     //
+   
+
+
     if (name !== "todos") {
       newProducts = newProducts.filter(item => item.name === name);
     }
     if (color !== "rooms") {
       newProducts = newProducts.filter(item => item.color === color);
     }
-    if (shipping !== false) {
+    if (colorstock !== "bath") {
+      newProducts = newProducts.filter(item => item.colorstock === colorstock);
+    }
+    if (filtro !== "All") {
+      newProducts = newProducts.filter(item => item.filtro === filtro);
+    }
+    if (amount !== false) {
       newProducts = newProducts.filter(item => item.free_shipping === shipping);
     }
     if (price !== "todos") {
@@ -151,9 +132,20 @@ export default function ProductProvider({ children }) {
         } else {
           return item.price > 5000;
         }
-        
       });
     }
+    if (talle !== "todos") {
+      newProducts = newProducts.filter(item => {
+        if (talle === 0) {
+          return item.talle < 2000;
+        } else if (talle === 2000) {
+          return item.talle > 2000 && item.talle < 5000;
+        } else {
+          return item.talle > 5000;
+        }
+      });
+    }
+
     if (search !== "") {
       newProducts = newProducts.filter(item => {
         let title = item.title.toLowerCase().trim();
@@ -164,20 +156,14 @@ export default function ProductProvider({ children }) {
     setPage(0);
 
     setSorted(paginate(newProducts));
-       // console.log( newProducts)
   }, [filters, products]);
   
 
 
   
 
-
-
-
-
-
     return (
-      <ProductContext.Provider
+      <PropertyContext.Provider
       value={{
         products,
         featured,
@@ -187,12 +173,14 @@ export default function ProductProvider({ children }) {
         page,
         changePage,
         updateFilters,
-        handleCheck,
-        changePrice
+        price,
+        maxPrice,
+        minPrice
+ 
       }}
     >
       {children}
-    </ProductContext.Provider>
+    </PropertyContext.Provider>
 
     )
 }

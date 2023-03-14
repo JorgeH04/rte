@@ -116,7 +116,7 @@ export default function Filters() {
                                           <input
                                             type="radio"
                                             name="price"
-                                            value="2000"
+                                            value="1000000"
                                             checked={price === 1000000}
                                             onChange={updateFilters}
                                            />
@@ -127,7 +127,7 @@ export default function Filters() {
                                           <input
                                             type="radio"
                                             name="price"
-                                            value="5000"
+                                            value="3000000"
                                             checked={price === 3000000}
                                             onChange={updateFilters}
                                            />
@@ -160,7 +160,7 @@ export default function Filters() {
                                            name="bath"
                                            value={category}
                                            onChange={updateFilters}
-                                           class="form-control" 
+                                           className="form-control" 
                                            id="bedrooms"
                                         >
                                             <option value="bath">Bathrooms</option>
@@ -172,7 +172,7 @@ export default function Filters() {
                                 </div>
 
                                 <div class="col-12 col-md-8 col-lg-12 col-xl-5 d-flex">
-                             
+                                
                                 </div>
 
 

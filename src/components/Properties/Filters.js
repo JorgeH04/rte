@@ -49,7 +49,7 @@ export default function Filters() {
                                           id="cities">
                                             <option value="todos">All Cities</option>
                                             <option value="Marbella">Marbella</option>
-                                            <option value="La Quinta-Benahavis-Marbella">La Quinta-Benahavis-Marbella</option>
+                                            <option value="Benahavis">Benahavis</option>
                                             <option value="Nueva Andalucia">Nueva Andalucia</option>
                                             <option value="La Gratitud- Golden Mile">La Gratitud- Golden Mile</option>
                                         </select>

@@ -49,9 +49,9 @@ export default function Filters() {
                                           id="cities">
                                             <option value="todos">All Cities</option>
                                             <option value="Marbella">Marbella</option>
-                                            <option value="Cortijo Blanco">Cortijo Blanco</option>
+                                            <option value="La Quinta-Benahavis-Marbella">La Quinta-Benahavis-Marbella</option>
                                             <option value="Nueva Andalucia">Nueva Andalucia</option>
-
+                                            <option value="La Gratitud- Golden Mile">La Gratitud- Golden Mile</option>
                                         </select>
                                     </div>
                                 </div>
@@ -109,29 +109,29 @@ export default function Filters() {
                                             checked={price === 0}
                                             onChange={updateFilters}
                                            />
-                                          $0 - $2000
+                                          $0 - $1.000.000
                                         </label>
                                         <br/>
                                         <label>
                                           <input
                                             type="radio"
                                             name="price"
-                                            value="1000000"
-                                            checked={price === 1000000}
+                                            value="1.000.000"
+                                            checked={price === 1.000.000}
                                             onChange={updateFilters}
                                            />
-                                          $2000 - $5000
+                                          $1.000.000 - $3.000.000
                                         </label>
                                         <br/>
                                         <label>
                                           <input
                                             type="radio"
                                             name="price"
-                                            value="3000000"
-                                            checked={price === 3000000}
+                                            value="3.000.000"
+                                            checked={price === 3.000.000}
                                             onChange={updateFilters}
                                            />
-                                         + $3000
+                                         + $3.000.000
                                         </label>                                                                             
                                     </div>
                                 </div>
@@ -172,7 +172,19 @@ export default function Filters() {
                                 </div>
 
                                 <div class="col-12 col-md-8 col-lg-12 col-xl-5 d-flex">
-                                
+                                <div class="slider-range">
+                                               <input 
+                                                            type="range"
+                                                            name="price"
+                                                            min={minPrice}
+                                                            max={maxPrice}
+                                                            id="price"
+                                                            value={price}
+                                                            onChange={updateFilters}
+                                                            className="form-control"
+                                                /><br />
+                                     
+                                    </div>
                                 </div>
 
 

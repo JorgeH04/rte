@@ -8,7 +8,7 @@ export const PropertyContext = React.createContext();
 export default function PropertyProvider({ children }) {
 
    const [loading, setLoading] = React.useState(false);   
-   const [products, setProducts] = React.useState([]);
+   const [properties, setProperties] = React.useState([]);
    const [featured, setFeatured] = React.useState([]);
    const [sorted, setSorted] = React.useState([]);
    const [page, setPage] = React.useState(0);
@@ -17,10 +17,10 @@ export default function PropertyProvider({ children }) {
     name: "todos",
     amount: false,
     price: "todos",
-    color:"rooms",
+    rooms:"rooms",
     filtro:"All",
     talle:"todos",
-    colorstock:"bath",
+    bath:"bath",
     minPrice: 0,
     maxPrice: 0,
   });
@@ -45,8 +45,8 @@ export default function PropertyProvider({ children }) {
 
       let response = await getAll(initialUrl);
       console.log(response);
-      setSorted(paginate(products));
-      setProducts(response.data);
+      setSorted(paginate(properties));
+      setProperties(response.data);
       console.log(response.data);
         let maxPrice = Math.max(...response.data.map(item => item.price));
        setPrice(maxPrice);
@@ -101,9 +101,9 @@ export default function PropertyProvider({ children }) {
  
 
   React.useLayoutEffect(() => {
-    let newProducts = [...products].sort((a, b) => a.price - b.price);
+    let newProducts = [...properties].sort((a, b) => a.price - b.price);
     
-    const { search, name, shipping, price, rooms, color, amount, filtro, talle, colorstock } = filters;
+    const { search, name, shipping, price, rooms, color, amount, filtro, talle, bath } = filters;
     //
    
 
@@ -111,11 +111,11 @@ export default function PropertyProvider({ children }) {
     if (name !== "todos") {
       newProducts = newProducts.filter(item => item.name === name);
     }
-    if (color !== "rooms") {
-      newProducts = newProducts.filter(item => item.color === color);
+    if (rooms !== "rooms") {
+      newProducts = newProducts.filter(item => item.rooms === rooms);
     }
-    if (colorstock !== "bath") {
-      newProducts = newProducts.filter(item => item.colorstock === colorstock);
+    if (bath !== "bath") {
+      newProducts = newProducts.filter(item => item.bath === bath);
     }
     if (filtro !== "All") {
       newProducts = newProducts.filter(item => item.filtro === filtro);
@@ -156,7 +156,7 @@ export default function PropertyProvider({ children }) {
     setPage(0);
 
     setSorted(paginate(newProducts));
-  }, [filters, products]);
+  }, [filters, properties]);
   
 
 
@@ -165,7 +165,7 @@ export default function PropertyProvider({ children }) {
     return (
       <PropertyContext.Provider
       value={{
-        products,
+        properties,
         featured,
         loading,
         filters,

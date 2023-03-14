@@ -1,11 +1,11 @@
 import React from "react";
 import { PropertyContext } from "../context/Properties";
 import Loading from "../components/Properties/Loading";
-import PageProducts from "../components/Properties/PageProperties";
+import PageProperties from "../components/Properties/PageProperties";
 import Filters from "../components/Properties/Filters";
 
 export default function Products() {
-  const { loading, products } = React.useContext(PropertyContext);
+  const { loading, properties } = React.useContext(PropertyContext);
 
   if (loading) {
     return <Loading />;
@@ -25,7 +25,7 @@ export default function Products() {
     </section>
     <Filters />
 
-    <PageProducts></PageProducts>
+    <PageProperties></PageProperties>
     </>
   );
 }

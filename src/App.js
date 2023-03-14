@@ -13,15 +13,18 @@ import PropertyFDetails from "./components/Properties/PropertyFDetails";
 import Property from "./components/Property";
 
 
- 
+import { Helmet } from 'react-helmet';
+
  
 function App() {
   return (
+        <>
   <Router>
 
   <Nav />
   <Route exact path="/">
-          <Hero />
+  <Hero />
+
           <PropertyFeatured />
   </Route>
 
@@ -50,6 +53,17 @@ function App() {
 </Router>
 
 
+<Helmet>
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+         <script src="js/popper.min.js"></script>
+         <script src="js/bootstrap.min.js"></script>
+        
+        <script src="/js/classy-nav.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+         <script src="js/active.js"></script>
+</Helmet>
+
+ </>
 
   );
 }

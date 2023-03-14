@@ -11,14 +11,18 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
+    "jquery": "^3.6.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.7.1",
     "react-owl-carousel2": "^0.3.0",
     "react-paypal-express-checkout": "^1.0.5",
     "react-router-dom": "^5.1.2",
+    "react-script-tag": "^1.1.2",
     "react-scripts": "5.0.1",
     "string-to-color": "^2.2.2",
+    "styled-components": "^5.3.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

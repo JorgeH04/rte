@@ -1,12 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet';
+import ScriptTag from 'react-script-tag';
+
+
+
  
-export default class Nav extends Component {
-    render() {
-        return (
+export default function Nav() {
+
+
+ 
+    
+
+return (
 <>
 
-
+             
+ 
     <div id="preloader">
         <div class="south-load"></div>
     </div>
@@ -67,13 +77,9 @@ export default class Nav extends Component {
     </header>
 
 
-
- 
-
-</>
-
-        )
-    }
-}
-
-
+  
+    <ScriptTag type="text/javascript" src="js/classy-nav.min.js" />
+   
+  </>
+         );
+        }

@@ -11,6 +11,8 @@ export default function ProductList() {
 
   return (
     <>
+ 
+
      <section class="featured-properties-area section-padding-100-50">
         <div class="container">
             <div class="row">

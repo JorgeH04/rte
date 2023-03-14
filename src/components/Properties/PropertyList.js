@@ -1,11 +1,10 @@
 import React from "react";
 import Propertycard from "./Propertycard";
  
-export default function PropertyList({ title, Propertycard }) {
-
+export default function PropertyList({ title, properties }) {
   return (
     <>
-          {Propertycard.map(item => {
+          {properties.map(item => {
                return <Propertycard key={item._id} {...item} />;
            })}
      </>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { PropertyContext } from "../../context/Properties";
 export default function Filters() {
   const {
-    filters: { search, category, amount,  rooms, filtro, talle, colorstock },
+    filters: { search, category, amount, rooms, filtro, talle, bath },
     updateFilters,
     sorted,
     price, 
@@ -138,7 +138,7 @@ export default function Filters() {
                                 <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                     <select 
-                                           name="color"
+                                           name="rooms"
                                            value={rooms}
                                            onChange={updateFilters}
                                            class="form-control" 
@@ -156,7 +156,7 @@ export default function Filters() {
                                 <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
                                     <select class="form-control" id="bathrooms"
-                                           name="colorstock"
+                                           name="bath"
                                            value={category}
                                            onChange={updateFilters}
                                            class="form-control" 

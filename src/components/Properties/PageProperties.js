@@ -19,7 +19,7 @@ export default function PaginatedProducts() {
             </div>
 
            <div class="row">
-			    	 <PropertyList products={sorted[page]}></PropertyList>
+			    	 <PropertyList properties={sorted[page]}></PropertyList>
            </div>
 
             <div class="row">

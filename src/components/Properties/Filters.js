@@ -117,7 +117,7 @@ export default function Filters() {
                                             type="radio"
                                             name="price"
                                             value="2000"
-                                            checked={price === 2000}
+                                            checked={price === 1000000}
                                             onChange={updateFilters}
                                            />
                                           $2000 - $5000
@@ -128,10 +128,10 @@ export default function Filters() {
                                             type="radio"
                                             name="price"
                                             value="5000"
-                                            checked={price === 5000}
+                                            checked={price === 3000000}
                                             onChange={updateFilters}
                                            />
-                                         + $5000
+                                         + $3000
                                         </label>                                                                             
                                     </div>
                                 </div>
@@ -172,19 +172,7 @@ export default function Filters() {
                                 </div>
 
                                 <div class="col-12 col-md-8 col-lg-12 col-xl-5 d-flex">
-                                    <div class="slider-range">
-                                               <input 
-                                                            type="range"
-                                                            name="price"
-                                                            min={minPrice}
-                                                            max={maxPrice}
-                                                            id="price"
-                                                            value={price}
-                                                            onChange={updateFilters}
-                                                            className="form-control"
-                                                /><br />
-                                     
-                                    </div>
+                             
                                 </div>
 
 

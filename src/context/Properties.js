@@ -30,13 +30,13 @@ export default function PropertyProvider({ children }) {
 
  
 
-  //  const initialUrl = `https://stelenapp.herokuapp.com/api/post`;
+   const initialUrl = `https://backre.herokuapp.com/properties`;
 
-   const initialUrl = `http://localhost:4000/properties`;
+//   const initialUrl = `http://localhost:4000/properties`;
 
  //   const initialUrlDos = `https://stelenapp.herokuapp.com`;
 
-   const initialUrlDos = `http://localhost:4000/ofertauno/uno`;
+   const initialUrlDos = `https://backre.herokuapp.com/ofertauno/uno`;
    console.log(initialUrlDos);
 
    React.useEffect(() => {

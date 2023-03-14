@@ -34,7 +34,7 @@ export default function PropertyProvider({ children }) {
 
  //  const initialUrl = `http://localhost:4000/properties`;
 
-  //  const initialUrlDos = `http://localhost:4000/ofertauno/uno`;
+ //   const initialUrlDos = `http://localhost:4000/ofertauno/uno`;
 
    const initialUrlDos = `https://backre.herokuapp.com/ofertauno/uno`;
    console.log(initialUrlDos);

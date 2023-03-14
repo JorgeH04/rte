@@ -14,7 +14,7 @@ export default function PropertyProvider({ children }) {
    const [page, setPage] = React.useState(0);
    const [filters, setFilters] = React.useState({
     search: "",
-    name: "todos",
+    title: "todos",
     amount: false,
     price: "todos",
     rooms:"rooms",
@@ -32,9 +32,9 @@ export default function PropertyProvider({ children }) {
 
    const initialUrl = `https://backre.herokuapp.com/properties`;
 
-//   const initialUrl = `http://localhost:4000/properties`;
+ //  const initialUrl = `http://localhost:4000/properties`;
 
- //   const initialUrlDos = `https://stelenapp.herokuapp.com`;
+  //  const initialUrlDos = `http://localhost:4000/ofertauno/uno`;
 
    const initialUrlDos = `https://backre.herokuapp.com/ofertauno/uno`;
    console.log(initialUrlDos);
@@ -103,13 +103,13 @@ export default function PropertyProvider({ children }) {
   React.useLayoutEffect(() => {
     let newProducts = [...properties].sort((a, b) => a.price - b.price);
     
-    const { search, name, shipping, price, rooms, color, amount, filtro, talle, bath } = filters;
+    const { search, name, shipping, price, rooms, color, amount, filtro, talle, bath, title } = filters;
     //
    
 
 
-    if (name !== "todos") {
-      newProducts = newProducts.filter(item => item.name === name);
+    if (title !== "todos") {
+      newProducts = newProducts.filter(item => item.title === title);
     }
     if (rooms !== "rooms") {
       newProducts = newProducts.filter(item => item.rooms === rooms);

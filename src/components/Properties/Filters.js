@@ -42,15 +42,16 @@ export default function Filters() {
                                 <div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <select 
-                                          name="name"
+                                          name="title"
                                           class="form-control" 
                                           value={category}
                                           onChange={updateFilters}
                                           id="cities">
                                             <option value="todos">All Cities</option>
-                                            <option value="Palermo">Palermo</option>
-                                            <option value="Caballito">Caballito</option>
-                                       
+                                            <option value="Marbella">Marbella</option>
+                                            <option value="Cortijo Blanco">Cortijo Blanco</option>
+                                            <option value="Nueva Andalucia">Nueva Andalucia</option>
+
                                         </select>
                                     </div>
                                 </div>

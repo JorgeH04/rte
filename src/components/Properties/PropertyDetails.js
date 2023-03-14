@@ -9,33 +9,11 @@ import OwlCarousel from 'react-owl-carousel2';
 export default function ProductDetails() {
   const { _id } = useParams();
   const history = useHistory();
+  const { properties } = React.useContext(PropertyContext);
+  const product = properties.find(item => item._id === _id);
 
-  const { products } = React.useContext(PropertyContext);
-  const product = products.find(item => item._id === _id);
-
-  const [details, setDetails] = React.useState([{title: "", price: "", amount: "", imageuno: "", imagedos: ""}]);
-  const [price, setPrice] = React.useState();
-  const [title, setTitle] = React.useState();
-  const [amount, setAmount] = React.useState();
 
   
-  
-
-  React.useEffect(() => {
-    let prod = products.find(item => item._id === _id);
-    setDetails(prod) 
-  }, []);
- 
-
-  React.useEffect(() => {
-    let vim = products.find(item => item._id === _id);
-    let bb = vim.price
-    setPrice(bb) 
-  }, []);
-
-
- 
-
   const options = {
     items: 1,
     nav: true,
@@ -45,17 +23,14 @@ export default function ProductDetails() {
  
 
 
-
-  if (products.length === 0) {
+  if (properties.length === 0) {
     return <Loading />;
   } else {
    const {imageuno, imagedos, title, price, description} = product;
 
 
     return (
-       <>
-
-
+     <>
     <section class="breadcumb-area bg-img"  style={{backgroundImage: `url("${"https://res.cloudinary.com/dd3uzxyfv/image/upload/v1672106872/hero1_wkue4r.jpg"}")`}}>
         <div class="container h-100">
             <div class="row h-100 align-items-center">

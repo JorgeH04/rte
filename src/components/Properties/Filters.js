@@ -173,16 +173,7 @@ export default function Filters() {
 
                                 <div class="col-12 col-md-8 col-lg-12 col-xl-5 d-flex">
                                 <div class="slider-range">
-                                               <input 
-                                                            type="range"
-                                                            name="price"
-                                                            min={minPrice}
-                                                            max={maxPrice}
-                                                            id="price"
-                                                            value={price}
-                                                            onChange={updateFilters}
-                                                            className="form-control"
-                                                /><br />
+                                        
                                      
                                     </div>
                                 </div>

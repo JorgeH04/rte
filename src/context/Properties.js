@@ -126,11 +126,11 @@ export default function PropertyProvider({ children }) {
     if (price !== "todos") {
       newProducts = newProducts.filter(item => {
         if (price === 0) {
-          return item.price < 1000000;
-        } else if (price === 1000000) {
-          return item.price > 1000000 && item.price < 3000000;
+          return item.price < 3000000;
+        } else if (price === 3000000) {
+          return item.price > 3000000 && item.price < 13000000;
         } else {
-          return item.price > 3000000;
+          return item.price > 13000000;
         }
       });
     }

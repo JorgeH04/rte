@@ -59,7 +59,7 @@ return (
                             <ul>
                                 <li> <Link to="/">Home</Link></li>
                                 <li><Link to="/about">About</Link></li>
-                                <li><Link to="/properties">Propiedades</Link> </li>
+                                <li><Link to="/properties">Properties</Link> </li>
                                 
                                 <li><Link to="/properties">Contact</Link> </li>
                             </ul>

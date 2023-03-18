@@ -50,8 +50,8 @@ export default function Filters() {
                                             <option value="todos">All Cities</option>
                                             <option value="Marbella">Marbella</option>
                                             <option value="Benahavis">Benahavis</option>
-                                            <option value="Nueva Andalucia">Nueva Andalucia</option>
-                                            <option value="La Gratitud- Golden Mile">La Gratitud- Golden Mile</option>
+                                            <option value="Nueva Andalucia-Marbella">Nueva Andalucia</option>
+                                            <option value="Benahavis Los Flamingos">Benahavis Los Flamingos</option>
                                         </select>
                                     </div>
                                 </div>

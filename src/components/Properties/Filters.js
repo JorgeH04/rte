@@ -116,7 +116,7 @@ export default function Filters() {
                                           <input
                                             type="radio"
                                             name="price"
-                                            value="1000000"
+                                            value="3000000"
                                             checked={price === 3000000}
                                             onChange={updateFilters}
                                            />
@@ -127,7 +127,7 @@ export default function Filters() {
                                           <input
                                             type="radio"
                                             name="price"
-                                            value="3000000"
+                                            value="13000000"
                                             checked={price === 13000000}
                                             onChange={updateFilters}
                                            />

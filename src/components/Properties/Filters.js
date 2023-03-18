@@ -117,7 +117,7 @@ export default function Filters() {
                                             type="radio"
                                             name="price"
                                             value="1000000"
-                                            checked={price === 1000000}
+                                            checked={price === 3000000}
                                             onChange={updateFilters}
                                            />
                                           $1.000.000 - $3.000.000
@@ -128,7 +128,7 @@ export default function Filters() {
                                             type="radio"
                                             name="price"
                                             value="3000000"
-                                            checked={price === 3000000}
+                                            checked={price === 13000000}
                                             onChange={updateFilters}
                                            />
                                          + $3.000.000
